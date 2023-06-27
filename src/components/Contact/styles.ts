@@ -11,17 +11,11 @@ export const Card = styled.div`
   border-radius: 50px;
   height: 148px;
   margin-left: 78px;
-  padding: 16px;
+  padding: 16px 38px;
   width: 638px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 18px;
-`
-export const Info = styled.p`
-  display: flex;
-  align-items: center;
-  font-size: 23px;
-  padding: 5px;
 `
 
 export const ContactIcon = styled(BsFillPersonFill)`
@@ -42,21 +36,4 @@ export const ActionBar = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-left: 60px;
-`
-
-export const EditButton = styled.button`
-  margin: 10px;
-  padding: 8px 28px;
-  border-radius: 50px;
-  border: none;
-  background-color: #d2d457;
-  font-weight: bold;
-  cursor: pointer;
-`
-export const SaveButton = styled(EditButton)`
-  background-color: #33cd1a;
-`
-
-export const DeleteCancelButton = styled(EditButton)`
-  background-color: #d45757;
 `

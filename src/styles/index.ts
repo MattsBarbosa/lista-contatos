@@ -7,6 +7,16 @@ const EstiloGlobal = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
     font-family: Roboto, sans-serif;
+
+    input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+    }
+    input[type=number] {
+      -moz-appearance: textfield;
+      appearance: textfield;
+
+    }
   }
 `
 export const Container = styled.div`
@@ -34,6 +44,29 @@ export const Title = styled.h1`
   margin-top: 30px;
   margin-left: 74px;
   margin-bottom: 30px;
+`
+export const Info = styled.p`
+  display: flex;
+  align-items: center;
+  font-size: 23px;
+  padding: 5px;
+`
+
+export const EditButton = styled.button`
+  margin: 10px;
+  padding: 8px 28px;
+  border-radius: 50px;
+  border: none;
+  background-color: #d2d457;
+  font-weight: bold;
+  cursor: pointer;
+`
+export const SaveButton = styled(EditButton)`
+  background-color: #33cd1a;
+`
+
+export const DeleteCancelButton = styled(EditButton)`
+  background-color: #d45757;
 `
 
 export default EstiloGlobal

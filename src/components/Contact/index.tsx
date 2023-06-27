@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
+import { EditButton, SaveButton, DeleteCancelButton } from '../../styles'
 import ContactClass from '../../models/Contact'
 import { remove, edit } from '../../store/reducers/contacts'
-import { Input } from '../../styles'
+import { Input, Info } from '../../styles'
 
 type Props = ContactClass
 
@@ -44,71 +45,69 @@ const Contact = ({
       <div>
         {isEditing ? (
           <>
-            <S.Info>
+            <Info>
               <S.ContactIcon />
               <Input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-            </S.Info>
-            <S.Info>
+            </Info>
+            <Info>
               <S.PhoneIcon />
               <Input
                 type="number"
                 value={phone}
                 onChange={(e) => setPhone(parseInt(e.target.value))}
               />
-            </S.Info>
-            <S.Info>
+            </Info>
+            <Info>
               <S.EmailIcon />
               <Input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </S.Info>
+            </Info>
           </>
         ) : (
           <>
-            <S.Info>
+            <Info>
               <S.ContactIcon />
               {OriginalName}
-            </S.Info>
-            <S.Info>
+            </Info>
+            <Info>
               <S.PhoneIcon />
               {OriginalPhone}
-            </S.Info>
-            <S.Info>
+            </Info>
+            <Info>
               <S.EmailIcon />
               {OriginalEmail}
-            </S.Info>
+            </Info>
           </>
         )}
       </div>
       <S.ActionBar>
         {isEditing ? (
           <>
-            <S.SaveButton
+            <SaveButton
               onClick={() => {
                 dispatch(edit({ name, phone, email, id }))
                 setIsEditing(false)
               }}
             >
               Salvar
-            </S.SaveButton>
-            <S.DeleteCancelButton onClick={cancelEditing}>
+            </SaveButton>
+            <DeleteCancelButton onClick={cancelEditing}>
               Cancelar
-            </S.DeleteCancelButton>
+            </DeleteCancelButton>
           </>
         ) : (
           <>
-            <S.EditButton onClick={() => setIsEditing(true)}>
-              Editar
-            </S.EditButton>
-            <S.DeleteCancelButton onClick={() => dispatch(remove(id))}>
+            <EditButton onClick={() => setIsEditing(true)}>Editar</EditButton>
+            <DeleteCancelButton onClick={() => dispatch(remove(id))}>
               Remover
-            </S.DeleteCancelButton>
+            </DeleteCancelButton>
           </>
         )}
       </S.ActionBar>
